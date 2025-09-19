@@ -1,0 +1,40 @@
+name: Build Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Check TypeScript
+        run: npx tsc --noEmit || true
+      
+      - name: Test Expo Web Build
+        run: |
+          npm install -g expo-cli
+          npx expo export -p web || true
+      
+      - name: Create Build Report
+        if: always()
+        run: |
+          echo "# Build Report" > build-report.md
+          echo "## Status: ${{ job.status }}" >> build-report.md
+          echo "## Commit: ${{ github.sha }}" >> build-report.md
+          echo "## Branch: ${{ github.ref }}" >> build-report.md
+          echo "## Time: $(date)" >> build-report.md

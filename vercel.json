@@ -1,7 +1,12 @@
 {
-  "buildCommand": "expo export -p web",
+  "buildCommand": "npx expo export -p web",
   "outputDirectory": "dist",
   "devCommand": "expo start --web",
   "cleanUrls": true,
-  "framework": null
+  "framework": null,
+  "installCommand": "npm install",
+  "env": {
+    "EXPO_PUBLIC_SUPABASE_URL": "https://amnayqupnmyvghjxbuvf.supabase.co",
+    "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtbmF5cXVwbm15dmdoanhidXZmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzcyOTM2NDAsImV4cCI6MjA1Mjg2OTY0MH0.LrFUzC_9pELiksaJJYT4ZA_ht7wRxiH"
+  }
 }
