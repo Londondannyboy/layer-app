@@ -60,6 +60,6 @@ export const useOnboardingStore = create<OnboardingState>((set) => ({
     bio: '',
     selectedLayers: [],
     privacyStrategy: 'balanced',
-    currentStep: 0,
-  }),
-});
+    currentStep: 0
+  })
+}));
