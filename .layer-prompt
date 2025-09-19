@@ -1,0 +1,15 @@
+#!/bin/bash
+# Layer Project Terminal Customization
+
+# Purple prompt for Layer project
+export PS1="\[\033[35m\]🔷 LAYER \[\033[36m\]\W\[\033[00m\] $ "
+
+# Optional: Set terminal title
+echo -ne "\033]0;Layer Dating App Project\007"
+
+# Optional: Add project-specific aliases
+alias layer-start="npm start"
+alias layer-web="npm run web"
+alias layer-deploy="npx vercel --prod"
+
+echo "💜 Layer Project Environment Loaded"
